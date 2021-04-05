@@ -19,7 +19,7 @@ client.connect(err => {
   const fruitsCollection = client.db("fuitsdb").collection("fruits");
   const allOrders = client.db("allitemsdb").collection("items");
 
-  app.post('/addEvent', (req, res) => {
+  app.post('/addProduct', (req, res) => {
     const newEvent = req.body;
     console.log(newEvent);
     fruitsCollection.insertOne(newEvent)
@@ -29,7 +29,7 @@ client.connect(err => {
       })
   })
 
-  app.get('/events', (req, res) => {
+  app.get('/products', (req, res) => {
     fruitsCollection.find()
       .toArray((err, items) => {
         res.send(items);
